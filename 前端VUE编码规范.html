@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>前端VUE编码规范</title>
+  <style>
+body {
+  margin: 0;
+}
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+a {
+  background-color: transparent;
+}
+code, kbd, pre, samp {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+pre {
+  overflow: auto;
+}
+.note .post .article .show-content {
+  color: #2f2f2f;
+  word-break: break-word;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+.note .post {
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  width: 620px;
+}
+.note {
+  position: relative;
+  padding-top: 10px;
+}
+body {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.4285;
+  color: #333;
+  background-color: #fff;
+}
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent;
+}
+body, html {
+  height: 100%;
+}
+body {
+  padding-top: 56px !important;
+  min-width: 768px;
+  font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+  font-size: 17px;
+}
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+a, body {
+  color: #333;
+}
+body.reader-black-font, body.reader-black-font .history-mode .view-area, body.reader-black-font .history-mode .view-area pre, body.reader-black-font .main .kalamu-area, body.reader-black-font .main .markdown .text, body.reader-black-font input, body.reader-black-font select, body.reader-black-font textarea {
+  font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+.h1, .h2, .h3, h1, h2, h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.h1, h1 {
+  font-size: 36px;
+}
+.h3, h3 {
+  font-size: 24px;
+}
+.h4, h4 {
+  font-size: 20px;
+}
+.h5, h5 {
+  font-size: 16px;
+}
+.note .post .article .show-content h1, .note .post .article .show-content h2, .note .post .article .show-content h3, .note .post .article .show-content h4, .note .post .article .show-content h5, .note .post .article .show-content h6 {
+  margin: 0 0 15px;
+  font-weight: 700;
+  color: #2f2f2f;
+  line-height: 1.7;
+  text-rendering: optimizelegibility;
+}
+.note .post .article .show-content h1 {
+  font-size: 26px;
+}
+.note .post .article .show-content h3 {
+  font-size: 22px;
+}
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-left: 5px solid #eee;
+}
+.note .post .article .show-content blockquote {
+  padding: 20px;
+  margin-bottom: 25px;
+  background-color: #f7f7f7;
+  border-left: 6px solid #b4b4b4;
+  word-break: break-word;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+}
+p {
+  margin: 0 0 10px;
+}
+ol, ul {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+ul {
+  padding-left: 0px;
+}
+blockquote ol:last-child, blockquote p:last-child, blockquote ul:last-child {
+  margin-bottom: 0px;
+}
+.note .post .article .show-content p {
+  margin: 0 0 25px;
+}
+.note .post .article .show-content ol, .note .post .article .show-content p, .note .post .article .show-content ul {
+  word-break: break-word;
+}
+a {
+  cursor: pointer;
+}
+.note .post .article .show-content a {
+  color: #3194d0;
+}
+.note .post .article .show-content ol, .note .post .article .show-content ul {
+  padding: 0;
+  margin-left: 22px;
+  margin-bottom: 20px;
+}
+li {
+  line-height: 20px;
+}
+.note .post .article .show-content ol li, .note .post .article .show-content ul li {
+  margin-bottom: 10px;
+  line-height: 30px;
+}
+.note .post .article .show-content li p {
+  overflow: visible;
+}
+.note .post .article .show-content blockquote p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+.note .post .article .show-content blockquote h1:last-child, .note .post .article .show-content blockquote h2:last-child, .note .post .article .show-content blockquote h3:last-child, .note .post .article .show-content blockquote h4:last-child, .note .post .article .show-content blockquote h5:last-child, .note .post .article .show-content blockquote h6:last-child, .note .post .article .show-content blockquote li:last-child, .note .post .article .show-content blockquote ol:last-child, .note .post .article .show-content blockquote p:last-child, .note .post .article .show-content blockquote ul:last-child {
+  margin-bottom: 0px;
+}
+code, kbd, pre, samp {
+  font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+}
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.4285;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.hljs, pre {
+  background: #f6f6f6;
+  color: #657b83;
+  -webkit-text-size-adjust: none;
+}
+.note .post .article .show-content pre {
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 13px;
+  word-wrap: normal;
+  word-break: break-word;
+  white-space: pre;
+  overflow: auto;
+  border-radius: 0;
+}
+code {
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+code, kbd {
+  padding: 2px 4px;
+  font-size: 90%;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0;
+}
+.note .post .article .show-content code {
+  padding: 2px 4px;
+  background-color: #f6f6f6;
+  border: none;
+  color: #657b83;
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+.note .post .article .show-content pre code {
+  padding: 0;
+  background-color: transparent;
+  white-space: pre;
+}
+.css .hljs-function, .hljs-built_in, .hljs-chunk, .hljs-decorator, .hljs-id, .hljs-identifier, .hljs-localvars, .hljs-name, .hljs-title, .vhdl .hljs-literal {
+  color: #268bd2;
+}
+.hljs-attribute, .hljs-class .hljs-title, .hljs-constant, .hljs-link_reference, .hljs-parent, .hljs-type, .hljs-variable, .lisp .hljs-body, .smalltalk .hljs-number {
+  color: #b58900;
+}
+.diff .hljs-header, .hljs-comment, .hljs-doctype, .hljs-pi, .lisp .hljs-string {
+  color: #93a1a1;
+}
+.css .hljs-tag, .hljs-addition, .hljs-keyword, .hljs-request, .hljs-status, .hljs-winutils, .method, .nginx .hljs-title {
+  color: #859900;
+}
+.hljs-command, .hljs-doctag, .hljs-hexcolor, .hljs-link_url, .hljs-number, .hljs-regexp, .hljs-rule .hljs-value, .hljs-string, .hljs-tag .hljs-value, .tex .hljs-formula {
+  color: #2aa198;
+}
+</style>
+</head>
+<body class="reader-black-font" lang="zh-CN">
+  <div class="note">
+    <div class="post">
+      <div class="article">
+        <div class="show-content">
+          <h1>前端VUE编码规范</h1>
+          <h3>规范目的：</h3>
+          <p>本规范提供了一种统一的编码规范来编写&nbsp;Vue.js&nbsp;代码。这使得代码具有如下的特性：</p>
+          <blockquote>
+
+            <ul>
+              <li>其它开发者或是团队成员更容易阅读和理解。</li>
+              <li>IDEs 更容易理解代码，从而提供高亮、格式化等辅助功能</li>
+              <li>更容易使用现有的工具</li>
+              <li>更容易实现缓存以及代码包的分拆</li>
+            </ul>
+          </blockquote>
+          <h3>一、注意事项</h3>
+          <blockquote>
+            <ul>
+              <li>
+                <p>
+                  开发尽量使用
+                  <code>ES6</code>
+                  ，遵循
+                  <code>CommonJS</code>
+                  规范
+                </p>
+              </li>
+              <li>
+                <p>
+                  切勿直接操作
+                  <code>DOM</code>
+                  ，要操作数据
+                </p>
+              </li>
+              <li>
+                <p>
+                  尽量使用Vue的语法，比如可以用
+                  <code>:style</code>
+                  代替
+                  <code>v-bind:style</code>
+                  ；用
+                  <code>@click</code>
+                  代替
+                  <code>v-on:click</code>
+                </p>
+              </li>
+            </ul>
+          </blockquote>
+          <h3>二、通用规范：</h3>
+
+          <h4>1、开发环境部署(具体配置见git代码)</h4>
+          <blockquote>
+            <ul>
+              <li>推荐使用vue-cli</li>
+              <li>
+                <p>采用运行时构建</p>
+                <pre class="hljs cs"><code class="cs"><span class="hljs-comment">// 需要编译器</span>
+<span class="hljs-keyword">new</span> Vue({
+  template: <span class="hljs-string">'&lt;div&gt;{{ hi }}&lt;/div&gt;'</span>
+})
+<span class="hljs-comment">// 不需要编译器</span>
+<span class="hljs-keyword">new</span> Vue({
+  render (h) {
+    <span class="hljs-keyword">return</span> h(<span class="hljs-string">'div'</span>, <span class="hljs-keyword">this</span>.hi)
+  }
+})</code></pre>
+              </li>
+              <li>依赖包版本推荐用较新的稳定版本，比最新版低一个子版本。
+<pre class="hljs json"><code class="json">{
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"flaginfo"</span></span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Automation platform developers build by nodejs and vue2.0"</span></span>,
+  "<span class="hljs-attribute">author</span>": <span class="hljs-value"><span class="hljs-string">"Kotton"</span></span>,
+  "<span class="hljs-attribute">protected</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">scripts</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">dev</span>": <span class="hljs-value"><span class="hljs-string">"cross-env NODE_ENV=development webpack-dev-server --open --inline --hot"</span></span>,
+    "<span class="hljs-attribute">build</span>": <span class="hljs-value"><span class="hljs-string">"cross-env NODE_ENV=production webpack --progress --hide-modules"</span></span>,
+    "<span class="hljs-attribute">watch</span>": <span class="hljs-value"><span class="hljs-string">"webpack --progress --color --watch"</span></span>,
+    "<span class="hljs-attribute">server</span>": <span class="hljs-value"><span class="hljs-string">"node ./server/server"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">dependencies</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">connect-flash</span>": <span class="hljs-value"><span class="hljs-string">"^0.1.1"</span></span>,
+    "<span class="hljs-attribute">connect-mongo</span>": <span class="hljs-value"><span class="hljs-string">"^1.3.2"</span></span>,
+    "<span class="hljs-attribute">cookie-parser</span>": <span class="hljs-value"><span class="hljs-string">"^1.4.3"</span></span>,
+    "<span class="hljs-attribute">express</span>": <span class="hljs-value"><span class="hljs-string">"^4.14.0"</span></span>,
+    "<span class="hljs-attribute">express-messages</span>": <span class="hljs-value"><span class="hljs-string">"^1.0.1"</span></span>,
+    "<span class="hljs-attribute">express-session</span>": <span class="hljs-value"><span class="hljs-string">"^1.14.2"</span></span>,
+    "<span class="hljs-attribute">express-validator</span>": <span class="hljs-value"><span class="hljs-string">"^2.21.0"</span></span>,
+    "<span class="hljs-attribute">font-awesome</span>": <span class="hljs-value"><span class="hljs-string">"^4.7.0"</span></span>,
+    "<span class="hljs-attribute">lorem-ipsum</span>": <span class="hljs-value"><span class="hljs-string">"^1.0.3"</span></span>,
+    "<span class="hljs-attribute">md5</span>": <span class="hljs-value"><span class="hljs-string">"^2.2.1"</span></span>,
+    "<span class="hljs-attribute">moment</span>": <span class="hljs-value"><span class="hljs-string">"^2.16.0"</span></span>,
+    "<span class="hljs-attribute">mongodb</span>": <span class="hljs-value"><span class="hljs-string">"^2.2.11"</span></span>,
+    "<span class="hljs-attribute">mongoose</span>": <span class="hljs-value"><span class="hljs-string">"^4.6.6"</span></span>,
+    "<span class="hljs-attribute">passport</span>": <span class="hljs-value"><span class="hljs-string">"^0.3.2"</span></span>,
+    "<span class="hljs-attribute">passport-local</span>": <span class="hljs-value"><span class="hljs-string">"^1.0.0"</span></span>,
+    "<span class="hljs-attribute">pinyin</span>": <span class="hljs-value"><span class="hljs-string">"^2.8.0"</span></span>,
+    "<span class="hljs-attribute">serve-favicon</span>": <span class="hljs-value"><span class="hljs-string">"^2.3.0"</span></span>,
+    "<span class="hljs-attribute">slug</span>": <span class="hljs-value"><span class="hljs-string">"^0.9.1"</span></span>,
+    "<span class="hljs-attribute">truncate</span>": <span class="hljs-value"><span class="hljs-string">"^2.0.0"</span></span>,
+    "<span class="hljs-attribute">vue</span>": <span class="hljs-value"><span class="hljs-string">"^2.3.0"</span></span>,
+    "<span class="hljs-attribute">vue-loader</span>": <span class="hljs-value"><span class="hljs-string">"^13.0.1"</span></span>,
+    "<span class="hljs-attribute">vue-resource</span>": <span class="hljs-value"><span class="hljs-string">"^1.0.3"</span></span>,
+    "<span class="hljs-attribute">vue-router</span>": <span class="hljs-value"><span class="hljs-string">"^2.0.1"</span></span>,
+    "<span class="hljs-attribute">vue-template-compiler</span>": <span class="hljs-value"><span class="hljs-string">"^2.3.4"</span></span>,
+    "<span class="hljs-attribute">vuex</span>": <span class="hljs-value"><span class="hljs-string">"^2.0.0"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">devDependencies</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">babel-core</span>": <span class="hljs-value"><span class="hljs-string">"^6.18.2"</span></span>,
+    "<span class="hljs-attribute">babel-loader</span>": <span class="hljs-value"><span class="hljs-string">"^6.2.7"</span></span>,
+    "<span class="hljs-attribute">babel-plugin-transform-runtime</span>": <span class="hljs-value"><span class="hljs-string">"^6.15.0"</span></span>,
+    "<span class="hljs-attribute">babel-preset-es2015</span>": <span class="hljs-value"><span class="hljs-string">"^6.18.0"</span></span>,
+    "<span class="hljs-attribute">babel-runtime</span>": <span class="hljs-value"><span class="hljs-string">"^6.18.0"</span></span>,
+    "<span class="hljs-attribute">bluebird</span>": <span class="hljs-value"><span class="hljs-string">"^3.4.6"</span></span>,
+    "<span class="hljs-attribute">body-parser</span>": <span class="hljs-value"><span class="hljs-string">"^1.15.2"</span></span>,
+    "<span class="hljs-attribute">bootstrap</span>": <span class="hljs-value"><span class="hljs-string">"^3.3.7"</span></span>,
+    "<span class="hljs-attribute">cookie-parser</span>": <span class="hljs-value"><span class="hljs-string">"^1.4.3"</span></span>,
+    "<span class="hljs-attribute">copy-webpack-plugin</span>": <span class="hljs-value"><span class="hljs-string">"^4.0.0"</span></span>,
+    "<span class="hljs-attribute">cross-env</span>": <span class="hljs-value"><span class="hljs-string">"^3.0.0"</span></span>,
+    "<span class="hljs-attribute">css-loader</span>": <span class="hljs-value"><span class="hljs-string">"^0.25.0"</span></span>,
+    "<span class="hljs-attribute">extract-text-webpack-plugin</span>": <span class="hljs-value"><span class="hljs-string">"^2.0.0-beta.4"</span></span>,
+    "<span class="hljs-attribute">file-loader</span>": <span class="hljs-value"><span class="hljs-string">"^0.9.0"</span></span>,
+    "<span class="hljs-attribute">hash-sum</span>": <span class="hljs-value"><span class="hljs-string">"^1.0.2"</span></span>,
+    "<span class="hljs-attribute">js-beautify</span>": <span class="hljs-value"><span class="hljs-string">"^1.6.14"</span></span>,
+    "<span class="hljs-attribute">json-loader</span>": <span class="hljs-value"><span class="hljs-string">"^0.5.4"</span></span>,
+    "<span class="hljs-attribute">morgan</span>": <span class="hljs-value"><span class="hljs-string">"^1.7.0"</span></span>,
+    "<span class="hljs-attribute">supervisor</span>": <span class="hljs-value"><span class="hljs-string">"^0.11.0"</span></span>,
+    "<span class="hljs-attribute">vue-animated-list</span>": <span class="hljs-value"><span class="hljs-string">"^1.0.2"</span></span>,
+    "<span class="hljs-attribute">vue-hot-reload-api</span>": <span class="hljs-value"><span class="hljs-string">"^2.0.6"</span></span>,
+    "<span class="hljs-attribute">vue-html-loader</span>": <span class="hljs-value"><span class="hljs-string">"^1.2.3"</span></span>,
+    "<span class="hljs-attribute">vue-style-loader</span>": <span class="hljs-value"><span class="hljs-string">"^1.0.0"</span></span>,
+    "<span class="hljs-attribute">vue-template-es2015-compiler</span>": <span class="hljs-value"><span class="hljs-string">"^1.5.3"</span></span>,
+    "<span class="hljs-attribute">vue-validator</span>": <span class="hljs-value"><span class="hljs-string">"^3.0.0-alpha.1"</span></span>,
+    "<span class="hljs-attribute">webpack</span>": <span class="hljs-value"><span class="hljs-string">"^2.1.0-beta.25"</span></span>,
+    "<span class="hljs-attribute">webpack-dev-server</span>": <span class="hljs-value"><span class="hljs-string">"^2.1.0-beta.0"</span>
+  </span>}
+</span>}</code></pre>
+              </li>
+            </ul>
+          </blockquote>
+          <h4>2、数据</h4>
+          <blockquote>
+            <ul>
+              <li>
+                不要将
+                <code>html</code>
+                的
+                <code>attribute</code>
+                和
+                <code>vue</code>
+                的
+                <code>model</code>
+                混用
+              </li>
+              <li>
+                <p>
+                  在面对样式较为复杂的改变时，尽量采用
+                  <code>:class</code>
+                </p>
+                <code>&lt;div v-for="item in items" class="fg_item" :class="{'off': !item.isok}"&gt;&lt;/div&gt;</code>
+              </li>
+            </ul>
+          </blockquote>
+
+          <h4>3、在组件中使用第三方插件(允许采用JQuery插件)</h4>
+          <blockquote>
+            <ul>
+              <li>
+                组件的初始化代码
+                <pre class="hljs dust"><code class="dust"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+          <span class="hljs-keyword">import</span> echarts <span class="hljs-keyword">from</span> <span class="hljs-string">'echarts'</span>;
+           <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> </span></span><span class="hljs-template-variable">{`
+            data () {
+                return {
+                }</span><span class="xml"><span class="undefined">
+            },
+            ready: </span></span><span class="hljs-template-variable">{
+            }</span><span class="xml"><span class="undefined">,
+            destroyed: </span></span><span class="hljs-template-variable">{
+            }</span><span class="xml"><span class="undefined">,
+            methods: </span></span><span class="hljs-template-variable">{
+            }</span><span class="xml"><span class="undefined">}</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre>
+              </li>
+              <li>
+                <p>要创建一个实例，应该在ready里面完成，但代码较多且需要拆分，可在methods里定义：</p>
+                <pre class="hljs xml"><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"chart"</span> <span class="hljs-attr">v-el:dom-line</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+           <span class="hljs-keyword">import</span> echarts <span class="hljs-keyword">from</span> <span class="hljs-string">'echarts'</span>;
+           <span class="hljs-keyword">import</span> $ <span class="hljs-keyword">from</span> <span class="hljs-string">'jquery'</span>;
+           <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+            data () {
+                <span class="hljs-keyword">return</span> {
+                    <span class="hljs-attr">chartData</span>: {}
+                }
+            },
+            <span class="hljs-attr">ready</span>: {
+                <span class="hljs-keyword">this</span>.getData();
+            },
+            <span class="hljs-attr">beforeDestroy</span>: {
+                <span class="hljs-comment">// 销毁定时器</span>
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.chartTimeout) {
+                    clearTimeout(<span class="hljs-keyword">this</span>.chartTimeout);
+                }
+                <span class="hljs-comment">// 销毁echart实例</span>
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.myChart) {
+                    <span class="hljs-keyword">this</span>.myChart.dispose();
+                }
+            },
+            <span class="hljs-attr">methods</span>: {
+                initChart () {
+                    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.myChart) {
+                        <span class="hljs-keyword">this</span>.myChart = echarts.init(<span class="hljs-keyword">this</span>.$els.domLine);
+                    }
+                    <span class="hljs-keyword">var</span> option = {
+                        <span class="hljs-comment">// ...</span>
+                    }
+                    <span class="hljs-keyword">this</span>.myChart.setOption(option);
+                },
+                getData() {
+                    <span class="hljs-keyword">var</span> _this = <span class="hljs-keyword">this</span>;
+                    $.ajax({
+                        <span class="hljs-attr">url</span>: <span class="hljs-string">''</span>,
+                        <span class="hljs-attr">type</span>: <span class="hljs-string">'get'</span>,
+                        <span class="hljs-attr">data</span>: {},
+                        success (data) {
+                            <span class="hljs-comment">// 每分钟更新一次数据</span>
+                            _this.data = data;
+                            Vue.nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+                                _this.initChart();
+                            });
+                            _this.chartTimeout = setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+                                _this.getData();
+                            }, <span class="hljs-number">1000</span> * <span class="hljs-number">60</span>);
+                        }
+                    })
+
+                }
+            }
+          }
+          </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+              </li>
+            </ul>
+          </blockquote>
+
+          <h4>4、资源的高度可复用</h4>
+          <blockquote>
+            <p>
+              为了使组件，自定义指令，自定义过滤器复用，要将可复用的内容单独拆离，
+              <br/>
+              将 <strong>组件</strong>
+              放置在
+              <code>components</code>
+              目录内，
+              <br/>
+              将 <strong>自定义指令</strong>
+              放置在
+              <code>directives</code>
+              目录内，
+              <br/>
+              将
+              <strong>自定义过滤器</strong>
+              放置在
+              <code>filters</code>
+              目录内
+            </p>
+            <pre class="hljs xml"><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+            <span class="hljs-keyword">import</span> Picker form <span class="hljs-string">'../picker'</span>
+            // <span class="hljs-keyword">import</span> PlantFocus form <span class="hljs-string">'../../directives/plant-focus'</span>
+            <span class="hljs-keyword">import</span> SortByID form <span class="hljs-string">'../../filters/sortByID'</span>
+
+            module.exports = {
+              components:{
+                Picker,
+                // PlantFocus,
+                SortById
+              },
+              filters:{
+                sortByID
+              },
+              data(){
+                return {}
+              },
+              methods:{}
+            }
+
+          </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
+          </blockquote>
+
+          <h4>5、css的使用</h4>
+          <blockquote>
+            <p>将业务型的css单独写一个文件</p>
+            <pre class="hljs xml"><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">style</span> <span class="hljs-attribute">scoped</span>&gt;</span><span class="css">
+            <span class="hljs-at_rule">@<span class="hljs-keyword">import('reset.css');</span>
+            @<span class="hljs-function">import</span>(<span class="hljs-string">'index.css'</span>)</span>;
+            <span class="hljs-tag">h1</span><span class="hljs-rules">{
+              <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value">red</span></span>;
+            }</span>
+          </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
+            <p>功能型的css，最好和组件一起，不推荐拆离，比如一个通用的confirm确认框。</p>
+          </blockquote>
+          <h3>三、组件规范：</h3>
+          <h4>1、基于模块开发</h4>
+          <blockquote>
+            <p>始终基于模块的方式来构建你的 app，每一个子模块只做一件事情。</p>
+            <p>Vue.js 的设计初衷就是帮助开发者更好的开发界面模块。一个模块是应用程序中独立的一个部分。</p>
+            <h5>怎么做？</h5>
+            <p>
+              每一个 Vue 组件(等同于模块)首先必须专注于解决一个&nbsp;单一的问题&nbsp;，&nbsp; <em>独立的</em>
+              &nbsp;,&nbsp; <em>可复用的</em>
+              &nbsp;,&nbsp;
+              <em>微小的</em>
+              &nbsp;and&nbsp;
+              <em>可测试的</em>
+              &nbsp;。
+            </p>
+            <p>
+              如果你的组件做了太多的事或是变得臃肿，请将其拆分成更小的组件并保持单一的原则。一般来说，尽量保证每一个文件的代码行数不要超过 100 行。也请保证组件可独立的运行。比较好的做法是增加一个单独的 demo 示例。
+            </p>
+          </blockquote>
+          <h4>2、Vue 组件命名</h4>
+          <blockquote>
+            <p>组件的命名需遵从以下原则：</p>
+            <blockquote>
+              <ul>
+                <li>
+                  <strong>有意义的</strong>
+                  &nbsp;: 不过于具体，也不过于抽象
+                </li>
+                <li>
+                  <strong>简短</strong>
+                  &nbsp;: 2 到 3 个单词
+                </li>
+                <li>
+                  <strong>具有可读性</strong>
+                  &nbsp;: 以便于沟通交流
+                </li>
+              </ul>
+            </blockquote>
+
+            <p>同时还需要注意：</p>
+            <blockquote>
+              <ul>
+                <li>
+                  必须符合&nbsp;
+                  <strong>自定义元素规范</strong>
+                  组件名称(含路由组件)使用连字符“-”分割单词，如
+                  <code>person-new-com</code>
+                  ，切勿使用保留字，不推荐驼峰。
+                </li>
+                <li>
+                  <strong><code>app-</code>
+                    &nbsp;前缀作为命名空间&nbsp;</strong>
+                  : 如果非常通用的话可使用一个单词来命名，这样可以方便于其它项目里复用。
+                </li>
+              </ul>
+            </blockquote>
+
+            <h5>为什么？</h5>
+            <ul>
+              <li>组件是通过组件名来调用的。所以组件名必须简短、富有含义并且具有可读性。</li>
+            </ul>
+            <h5>如何做？</h5>
+            <pre class="prettyprint hljs xml"><code class="xml">&lt;!-- 推荐 --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">app-header&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">app-header&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">user-list&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">user-list&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">range-slider&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">range-slider&gt;
+
+<span class="hljs-comment">&lt;!-- 避免 --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">btn-group&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">btn-group&gt; <span class="hljs-comment">&lt;!-- 虽然简短但是可读性差. 使用 `button-group` 替代 --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">ui-slider&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">ui-slider&gt; <span class="hljs-comment">&lt;!-- ui 前缀太过于宽泛，在这里意义不明确 --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">slider&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">slider&gt; <span class="hljs-comment">&lt;!-- 与自定义元素规范不兼容 --&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre>
+          </blockquote>
+          <h4>3、组件表达式简单化</h4>
+          <blockquote>
+            <p>
+              Vue.js 的表达式是 100% 的 Javascript 表达式。这使得其功能性很强大，但也带来潜在的复杂性。因此，你应该尽量&nbsp;
+              <strong>保持表达式的简单化</strong>
+              &nbsp;。
+            </p>
+            <h5>为什么？</h5>
+            <ul>
+              <li>复杂的行内表达式难以阅读。</li>
+              <li>行内表达式是不能够通用的，这可能会导致重复编码的问题。</li>
+              <li>IDE 基本上不能识别行内表达式语法，所以使用行内表达式 IDE 不能提供自动补全和语法校验功能。</li>
+            </ul>
+            <h5>怎么做？</h5>
+            <p>如果你发现写了太多复杂并难以阅读的行内表达式，那么可以使用 method 或是 computed 属性来替代其功能。</p>
+            <pre class="prettyprint hljs django"><span class="xml"><span class="hljs-comment">&lt;!-- 推荐 --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">template&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1&gt;
+        <span class="hljs-template-variable">{{ `${year}-${month}` }}<span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">h1&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">template&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">script <span class="hljs-attr">type=<span class="hljs-string">"text/javascript"&gt;<span class="javascript">
+  <span class="hljs-keyword">export <span class="hljs-keyword">default {
+    <span class="hljs-attr">computed: {
+      month() {
+        <span class="hljs-keyword">return <span class="hljs-keyword">this.twoDigits((<span class="hljs-keyword">new <span class="hljs-built_in">Date()).getUTCMonth() + <span class="hljs-number">1);
+      },
+      year() {
+        <span class="hljs-keyword">return (<span class="hljs-keyword">new <span class="hljs-built_in">Date()).getUTCFullYear();
+      }
+    },
+    <span class="hljs-attr">methods: {
+      twoDigits(num) {
+        <span class="hljs-keyword">return (<span class="hljs-string">'0' + num).slice(<span class="hljs-number">-2);
+      }
+    },
+  };
+<span class="hljs-tag">&lt;/<span class="hljs-name">script&gt;
+
+<span class="hljs-comment">&lt;!-- 避免 --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">template&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1&gt;
+        <span class="hljs-template-variable">{{ `${(new Date()).getUTCFullYear()}-${('0' + ((new Date()).getUTCMonth()+1)).slice(-2)}` }}<span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">h1&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">template&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+          </blockquote>
+          <h4>4、组件 props 原子化</h4>
+          <blockquote>
+            <p>
+              虽然 Vue.js 支持传递复杂的 JavaScript 对象通过 props 属性，但是你应该尽可能的使用原始类型的数据。尽量只使用&nbsp;JavaScript 原始类型&nbsp;(字符串、数字、布尔值) 和 函数。尽量避免复杂的对象。
+            </p>
+            <h5>为什么？</h5>
+            <ul>
+              <li>使得组件 API 清晰直观</li>
+              <li>只使用原始类型和函数作为 props 使得组件的 API 更接近于 HTML(5) 原生元素。</li>
+              <li>其它开发者更好的理解每一个 prop 的含义，作用</li>
+              <li>传递过于复杂的对象使得我们不能够清楚的知道哪些属性或方法被自定义组件使用，这使得代码难以重构和维护。</li>
+            </ul>
+            <h5>怎么做？</h5>
+            <p>组件的每一个属性单独使用一个 props，并且使用函数或是原始类型的值。</p>
+            <pre class="prettyprint hljs xml"><span class="hljs-comment">&lt;!-- 推荐 --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">range-slider
+  <span class="hljs-attr">:values=<span class="hljs-string">"[10, 20]"
+  <span class="hljs-attr">min=<span class="hljs-string">"0"
+  <span class="hljs-attr">max=<span class="hljs-string">"100"
+  <span class="hljs-attr">step=<span class="hljs-string">"5"
+  <span class="hljs-attr">:on-slide=<span class="hljs-string">"updateInputs"
+  <span class="hljs-attr">:on-end=<span class="hljs-string">"updateResults"&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">range-slider&gt;
+
+<span class="hljs-comment">&lt;!-- 避免 --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">range-slider <span class="hljs-attr">:config=<span class="hljs-string">"complexConfigObject"&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">range-slider&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+          </blockquote>
+          <h4>5、验证组件的 props</h4>
+          <blockquote>
+            <p>在 Vue.js 中，组件的 props 即 API，一个稳定并可预测的 API 会使得你的组件更容易被其他开发者使用。</p>
+            <p>
+              组件 props 通过自定义标签的属性来传递。属性的值可以是 Vue.js 字符串(&nbsp;
+              <code>:attr="value"</code>
+              &nbsp;或
+              <code>v-bind:attr="value"</code>
+              &nbsp;)或是不传。你需要保证组件的 props 能应对不同的情况。
+            </p>
+            <h5>为什么？</h5>
+            <p>验证组件 props 可以保证你的组件永远是可用的(防御性编程)。即使其他开发者并未按照你预想的方法使用时也不会出错。</p>
+            <h5>怎么做？</h5>
+            <ul>
+              <li>提供默认值</li>
+              <li>
+                使用&nbsp;
+                <code>type</code>
+                &nbsp;属性&nbsp;校验类型
+              </li>
+              <li>使用 props 之前先检查该 prop 是否存在</li>
+            </ul>
+            <pre class="prettyprint hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">template&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">input <span class="hljs-attr">type=<span class="hljs-string">"range" <span class="hljs-attr">v-model=<span class="hljs-string">"value" <span class="hljs-attr">:max=<span class="hljs-string">"max" <span class="hljs-attr">:min=<span class="hljs-string">"min"&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">template&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">script <span class="hljs-attr">type=<span class="hljs-string">"text/javascript"&gt;<span class="javascript">
+  <span class="hljs-keyword">export <span class="hljs-keyword">default {
+    <span class="hljs-attr">props: {
+      <span class="hljs-attr">max: {
+        <span class="hljs-attr">type: <span class="hljs-built_in">Number, <span class="hljs-comment">// 这里添加了数字类型的校验
+        <span class="hljs-keyword">default() { <span class="hljs-keyword">return <span class="hljs-number">10; },
+      },
+      <span class="hljs-attr">min: {
+        <span class="hljs-attr">type: <span class="hljs-built_in">Number,
+        <span class="hljs-keyword">default() { <span class="hljs-keyword">return <span class="hljs-number">0; },
+      },
+      <span class="hljs-attr">value: {
+        <span class="hljs-attr">type: <span class="hljs-built_in">Number,
+        <span class="hljs-keyword">default() { <span class="hljs-keyword">return <span class="hljs-number">4; },
+      },
+    },
+  };
+<span class="hljs-tag">&lt;/<span class="hljs-name">script&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+          </blockquote>
+          <h4>
+            6、
+    将&nbsp;
+            <code>this</code>
+            &nbsp;赋值给&nbsp;
+            <code>component</code>
+            &nbsp;变量(
+          </h4>
+          <blockquote>
+            <p>
+              在 Vue.js 组件上下文中，&nbsp;
+              <code>this</code>
+              &nbsp;指向了组件实例。因此当你切换到了不同的上下文时，要确保
+              <code>this</code>
+              &nbsp;指向一个可用的&nbsp;
+              <code>component</code>
+              &nbsp;变量。
+            </p>
+            <p>
+              换句话说，不要在编写这样的代码&nbsp;
+              <code>const self = this;</code>
+              &nbsp;，而是应该直接使用变量&nbsp;
+              <code>component</code>
+              。
+            </p>
+            <h5>为什么？</h5>
+            <ul>
+              <li>
+                将组件&nbsp;
+                <code>this</code>
+                &nbsp;赋值给变量&nbsp;
+                <code>component</code>
+                &nbsp;可用让开发者清楚的知道任何一个被使用的地方，它代表的是组件实例。
+              </li>
+            </ul>
+            <h5>怎么做？</h5>
+            <pre class="prettyprint hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script <span class="hljs-attr">type=<span class="hljs-string">"text/javascript"&gt;<span class="javascript">
+<span class="hljs-keyword">export <span class="hljs-keyword">default {
+  <span class="hljs-attr">methods: {
+    hello() {
+      <span class="hljs-keyword">return <span class="hljs-string">'hello';
+    },
+    printHello() {
+      <span class="hljs-built_in">console.log(<span class="hljs-keyword">this.hello());
+    },
+  },
+};
+<span class="hljs-tag">&lt;/<span class="hljs-name">script&gt;
+
+<span class="hljs-comment">&lt;!-- 避免 --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">script <span class="hljs-attr">type=<span class="hljs-string">"text/javascript"&gt;<span class="javascript">
+<span class="hljs-keyword">export <span class="hljs-keyword">default {
+  <span class="hljs-attr">methods: {
+    hello() {
+      <span class="hljs-keyword">return <span class="hljs-string">'hello';
+    },
+    printHello() {
+      <span class="hljs-keyword">const self = <span class="hljs-keyword">this; <span class="hljs-comment">// 没有必要
+      <span class="hljs-built_in">console.log(self.hello());
+    },
+  },
+};
+<span class="hljs-tag">&lt;/<span class="hljs-name">script&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+          </blockquote>
+          <h4>7、组件结构化</h4>
+          <blockquote>
+            <p>按照一定的结构组织，使得组件便于理解。</p>
+            <h5>为什么？</h5>
+            <ul>
+              <li>导出一个清晰、组织有序的组件，使得代码易于阅读和理解。同时也便于标准化。</li>
+              <li>
+                按首字母排序properties, data, computed, watches 和 methods使得这些对象内的属性便于查找。
+              </li>
+              <li>
+                合理组织，使得组件易于阅读。(name; extends; props, data and computed; components; watch and methods; lifecycle methods, 等.);
+              </li>
+              <li>
+                使用&nbsp;
+                <code>name</code>
+                &nbsp;属性。借助于&nbsp;vue devtools&nbsp;可以让你更方便的测试
+              </li>
+              <li>合理的 CSS 结构，如&nbsp;BEM&nbsp;或&nbsp;rscss&nbsp;-;</li>
+              <li>使用单文件 .vue 文件格式来组件代码</li>
+            </ul>
+            <h5>怎么做？</h5>
+            <p>组件结构化</p>
+            <pre class="prettyprint hljs dust"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template <span class="hljs-attr">lang=<span class="hljs-string">"html"&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">div <span class="hljs-attr">class=<span class="hljs-string">"Ranger__Wrapper"&gt;
+        <span class="hljs-comment">&lt;!-- ... --&gt;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">template&gt;
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script <span class="hljs-attr">type=<span class="hljs-string">"text/javascript"&gt;<span class="javascript">
+  <span class="hljs-keyword">export <span class="hljs-keyword">default <span class="hljs-template-variable">{
+        // 不要忘记了 name 属性
+    name: 'RangeSlider',
+    // 组合其它组件
+    extends: {}<span class="xml">,
+    <span class="hljs-comment">// 组件属性、变量
+    props: <span class="hljs-template-variable">{
+            bar: {}<span class="xml">, <span class="hljs-comment">// 按字母顺序
+            foo: <span class="hljs-template-variable">{}<span class="xml">,
+            fooBar: <span class="hljs-template-variable">{}<span class="xml">,
+        },
+    <span class="hljs-comment">// 变量
+    data() <span class="hljs-template-variable">{}<span class="xml">,
+    computed: <span class="hljs-template-variable">{}<span class="xml">,
+    <span class="hljs-comment">// 使用其它组件
+    components: <span class="hljs-template-variable">{}<span class="xml">,
+    <span class="hljs-comment">// 方法
+    watch: <span class="hljs-template-variable">{}<span class="xml">,
+    methods: <span class="hljs-template-variable">{}<span class="xml">,
+    <span class="hljs-comment">// 生命周期函数
+    beforeCreate() <span class="hljs-template-variable">{}<span class="xml">,
+    mounted() <span class="hljs-template-variable">{}<span class="xml"><span class="undefined">,
+};
+<span class="hljs-tag">&lt;/<span class="hljs-name">script&gt;
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style <span class="hljs-attr">scoped&gt;<span class="css">
+  <span class="hljs-selector-class">.Ranger__Wrapper <span class="hljs-template-variable">{ /* ... */ }<span class="xml"><span class="undefined">
+<span class="hljs-tag">&lt;/<span class="hljs-name">style&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+          </blockquote>
+          <h4>8、组件事件命名</h4>
+          <blockquote>
+            <p>
+              Vue.js 提供的处理函数和表达式都是绑定在 ViewModel 上的，组件的每一个事件都应该按照一个好的命名规范来，这样可以避免不少的开发问题，具体可见如下。
+            </p>
+            <h5>为什么？</h5>
+            <ul>
+              <li>开发者可以随意给事件命名，即使是原生事件的名字，这样会带来迷惑性。</li>
+              <li>过于宽松的事件命名可能与&nbsp;DOM模板不兼容&nbsp;。</li>
+            </ul>
+            <h5>怎么做？</h5>
+            <ul>
+              <li>事件命名也连字符命名</li>
+              <li>
+                一个事件的名字对应组件外的一组意义操作，如：upload-success, upload-error 以及 dropzone-upload-success, dropzone-upload-error (如果需要前缀的话,则应为该组件的名称)。
+              </li>
+              <li>
+                事件命名应该以动词(如 client-api-load) 或是 形容词(如 drive-upload-success)结尾。(&nbsp;出处&nbsp;)
+              </li>
+            </ul>
+          </blockquote>
+          <h4>9、避免 this.$parent</h4>
+          <blockquote>
+            <p>
+              Vue.js 支持组件嵌套，并且子组件可访问父组件的上下文。访问组件之外的上下文违反了&nbsp;基于模块开发&nbsp;的&nbsp;第一原则&nbsp;。因此你应该尽量避免使用&nbsp;
+              <strong><code>this.$parent</code>
+                &nbsp;</strong>
+              。
+            </p>
+            <h5>为什么？</h5>
+            <ul>
+              <li>组件必须相互保持独立，Vue 组件也是。如果组件需要访问其父层的上下文就违反了该原则。</li>
+              <li>如果一个组件需要访问其父组件的上下文，那么该组件将不能再其它上下文中复用。</li>
+            </ul>
+            <h5>怎么做？</h5>
+            <ul>
+              <li>通过 props 将值传递给子组件</li>
+              <li>通过 props 传递回调函数给子组件来达到调用父组件方法的目的</li>
+              <li>通过在子组件触发事件来通知父组件</li>
+            </ul>
+          </blockquote>
+          <h4>10、谨慎使用 this.$refs</h4>
+          <blockquote>
+            <p>
+              Vue.js 支持通过&nbsp;
+              <code>ref</code>
+              &nbsp;属性来访问其它组件和 HTML 元素。并通过&nbsp;
+              <code>this.$refs</code>
+              &nbsp;可以得到组件或 HTML 元素的上下文。在大多数情况下，通过&nbsp;
+              <code>this.$refs</code>
+              &nbsp;来访问其它组件的上下文是可以避免的。在使用的的时候你需要注意避免调用了不恰当的组件 API，所以应该尽量避免使用&nbsp;
+              <code>this.$refs</code>
+              &nbsp;。
+            </p>
+            <h5>为什么？</h5>
+            <ul>
+              <li>组件必须是保持独立的，如果一个组件的 API 不能够提供所需的功能，那么这个组件在设计、实现上是有问题的。</li>
+              <li>组件的属性和事件必须足够的给大多数的组件使用</li>
+            </ul>
+            <h5>怎么做？</h5>
+            <ul>
+              <li>提供良好的组件 API</li>
+              <li>总是关注于组件本身的目的</li>
+              <li>
+                拒绝定制代码。如果你在一个通用的组件内部编写特定需求的代码，那么代表这个组件的 API 不够通用，或者你可能需要一个新的组件来应对该需求
+              </li>
+              <li>检查所有的 props 是否有缺失的，如果有提一个 issue 或是完善这个组件</li>
+              <li>检查所有的事件。子组件向父组件通信一般是通过事件来实现的，但是大多数的开发者更多的关注于 props 从忽视了这点。</li>
+              <li>
+                <strong>Props向下传递，事件向上传递！</strong>
+                &nbsp;。以此为目标升级你的组件，提供良好的 API 和 独立性。
+              </li>
+              <li>
+                当遇到 props 和 events 难以实现的功能时，通过&nbsp;
+                <code>this.$refs</code>
+                &nbsp;来实现。
+              </li>
+              <li>
+                当需要操作 DOM 无法通过指令来做的时候可使用&nbsp;
+                <code>this..$ref</code>
+                &nbsp;而不是&nbsp;
+                <code>JQuery</code>
+                &nbsp;,&nbsp;
+                <code>document.getElement*</code>
+                &nbsp;,&nbsp;
+                <code>document.queryElement</code>
+                &nbsp;。
+              </li>
+            </ul>
+            <pre class="prettyprint hljs xml"><span class="hljs-comment">&lt;!-- 推荐，并未使用 this.$refs --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">range <span class="hljs-attr">:max=<span class="hljs-string">"max"
+  <span class="hljs-attr">:min=<span class="hljs-string">"min"
+  @<span class="hljs-attr">current-value=<span class="hljs-string">"currentValue"
+  <span class="hljs-attr">:step=<span class="hljs-string">"1"&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">range&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+            <pre class="prettyprint hljs xml"><span class="hljs-comment">&lt;!-- 使用 this.$refs 的适用情况--&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">modal <span class="hljs-attr">ref=<span class="hljs-string">"basicModal"&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">h4&gt;Basic Modal<span class="hljs-tag">&lt;/<span class="hljs-name">h4&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">button <span class="hljs-attr">class=<span class="hljs-string">"primary" @<span class="hljs-attr">click=<span class="hljs-string">"$refs.basicModal.close()"&gt;Close<span class="hljs-tag">&lt;/<span class="hljs-name">button&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">modal&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">button @<span class="hljs-attr">click=<span class="hljs-string">"$refs.basicModal.open()"&gt;Open modal<span class="hljs-tag">&lt;/<span class="hljs-name">button&gt;
+
+<span class="hljs-comment">&lt;!-- Modal component --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">template&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">div <span class="hljs-attr">v-show=<span class="hljs-string">"active"&gt;
+    <span class="hljs-comment">&lt;!-- ... --&gt;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">template&gt;
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script&gt;<span class="javascript">
+  <span class="hljs-keyword">export <span class="hljs-keyword">default {
+    <span class="hljs-comment">// ...
+    data() {
+        <span class="hljs-keyword">return {
+            <span class="hljs-attr">active: <span class="hljs-literal">false,
+        };
+    },
+    <span class="hljs-attr">methods: {
+      open() {
+        <span class="hljs-keyword">this.active = <span class="hljs-literal">true;
+      },
+      hide() {
+        <span class="hljs-keyword">this.active = <span class="hljs-literal">false;
+      },
+    },
+    <span class="hljs-comment">// ...
+  };
+<span class="hljs-tag">&lt;/<span class="hljs-name">script&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+            <pre class="prettyprint hljs xml"><span class="hljs-comment">&lt;!-- 如果可通过 emited 来做则避免通过 this.$refs 直接访问 --&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">template&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">range <span class="hljs-attr">:max=<span class="hljs-string">"max"
+    <span class="hljs-attr">:min=<span class="hljs-string">"min"
+    <span class="hljs-attr">ref=<span class="hljs-string">"range"
+    <span class="hljs-attr">:step=<span class="hljs-string">"1"&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">range&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">template&gt;
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script&gt;<span class="javascript">
+  <span class="hljs-keyword">export <span class="hljs-keyword">default {
+    <span class="hljs-comment">// ...
+    methods: {
+      getRangeCurrentValue() {
+        <span class="hljs-keyword">return <span class="hljs-keyword">this.$refs.range.currentValue;
+      },
+    },
+    <span class="hljs-comment">// ...
+  };
+<span class="hljs-tag">&lt;/<span class="hljs-name">script&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+          </blockquote>
+          <h4>11、使用组件名作为样式作用域空间</h4>
+          <blockquote>
+            <p>Vue.js 的组件是自定义元素，这非常适合用来作为样式的根作用域空间。可以将组件名作为 css 类的命名空间。</p>
+            <h5>为什么？</h5>
+            <ul>
+              <li>给样式加上作用域空间可以避免组件样式影响外部的样式</li>
+              <li>保持模块名、目录名、样式根作用域名一样，可以很好的将其关联起来，便于开发者理解。</li>
+            </ul>
+            <h5>怎么做？</h5>
+            <p>
+              使用组件名作为样式命名的前缀，可基于 BEM 或 OOCSS 范式。同时给style标签加上 scoped 属性。加上 scoped 属性编译后会给组件的 class 自动加上唯一的前缀从而避免样式的冲突。
+            </p>
+            <pre class="prettyprint hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">style <span class="hljs-attr">scoped&gt;<span class="css">
+    <span class="hljs-comment">/* 推荐 */
+    <span class="hljs-selector-class">.MyExample { }
+    <span class="hljs-selector-class">.MyExample <span class="hljs-selector-tag">li { }
+    <span class="hljs-selector-class">.MyExample__item { }
+
+    <span class="hljs-comment">/* 避免 */
+    <span class="hljs-selector-class">.My-Example { } <span class="hljs-comment">/* not scoped to component or module name, not BEM compliant */
+<span class="hljs-tag">&lt;/<span class="hljs-name">style&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre>
+          </blockquote>
+          <h4>12、提供组件 API 文档</h4>
+          <blockquote>
+            <p>
+              使用 Vue.js 组件的过程中会创建 Vue 组件实例，这个实例是通过自定义属性配置的。为了便于其他开发者使用该组件，对于这些自定义属性即组件API应该在&nbsp;
+              <code>README.md</code>
+              &nbsp;文件中进行说明。
+            </p>
+            <h5>为什么？</h5>
+            <ul>
+              <li>良好的文档可以让开发者比较容易的对组件有一个整体的认识，而不用去阅读组件的源码，也更方便开发者使用</li>
+              <li>组件配置属性即组件的 API，对于组件的用户来说他们更感兴趣的是 API 而不是实现原理。</li>
+              <li>正式的文档会告诉开发者组件 API 变更以及向后的兼容性情况</li>
+              <li>
+                <code>README.md</code>
+                &nbsp;是标准的我们应该首先阅读的文档文件。代码托管网站 (github/bitbucket/gitlab 等) 会默认在仓库中展示 该文件作为仓库的介绍。
+              </li>
+            </ul>
+            <h5>怎么做？</h5>
+            <p>
+              在模块目录中添加&nbsp;
+              <code>README.md</code>
+              &nbsp;文件：
+            </p>
+            <pre class="hljs go"><span class="hljs-keyword">range-slider/
+├── <span class="hljs-keyword">range-slider.vue
+├── <span class="hljs-keyword">range-slider.less
+└── README.md</span></span></span></pre>
+            <p>
+              在 README 文件中说明模块的功能以及使用场景。对于 vue 组件来说，比较有用的描述是组件的自定义属性即 API 的描述介绍。
+            </p>
+          </blockquote>
+          <h2>举个栗子：开发一个名为Range slider组件</h2>
+          <blockquote>
+            <h3>功能</h3>
+            <p>range slider 组件可通过拖动的方式来设置一个给定范围内的数值。</p>
+            <p>该模块使用&nbsp;noUiSlider&nbsp;来实现夸浏览器和 touch 功能的支持。</p>
+            <h3>如何使用</h3>
+            <p>
+              <code>&lt;range-slider&gt;</code>
+              &nbsp;支持如下的自定义属性：
+            </p>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th width="19%">attribute</th>
+                  <th width="23%">type</th>
+                  <th width="58%">description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <code>min</code>
+                  </td>
+                  <td>Number</td>
+                  <td>可拖动的最小值.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>max</code>
+                  </td>
+                  <td>Number</td>
+                  <td>可拖动的最大值.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>values</code>
+                  </td>
+                  <td>
+                    Number[]&nbsp;
+                    <em>optional</em>
+                  </td>
+                  <td>
+                    包含最大值和最小值的数组. 如.&nbsp;
+                    <code>values="[10, 20]"</code>
+                    &nbsp;. Defaults to&nbsp;
+                    <code>[opts.min, opts.max]</code>
+                    &nbsp;.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>step</code>
+                  </td>
+                  <td>
+                    Number&nbsp;
+                    <em>optional</em>
+                  </td>
+                  <td>增加减小的数值单位，默认为 1.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>on-slide</code>
+                  </td>
+                  <td>
+                    Function&nbsp;
+                    <em>optional</em>
+                  </td>
+                  <td>
+                    用户拖动开始按钮或者结束按钮时的回调函数，函数接受&nbsp;
+                    <code>(values, HANDLE)</code>
+                    &nbsp;格式的参数。 如：&nbsp;
+                    <code>on-slide={ updateInputs }</code>
+                    &nbsp;,&nbsp;
+                    <code>component.updateInputs = (values, HANDLE) =&gt; { const value = values[HANDLE]; }</code>
+                    &nbsp;.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>on-end</code>
+                  </td>
+                  <td>
+                    Function&nbsp;
+                    <em>optional</em>
+                  </td>
+                  <td>
+                    当用户停止拖动时触发的回调函数，函数接受&nbsp;
+                    <code>(values, HANDLE)</code>
+                    &nbsp;格式的参数。
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p>如需要自定义 slider 的样式可参考 noUiSlider 文档</p>
+            <h3>提供组件 demo</h3>
+            <p>
+              添加&nbsp;
+              <code>index.html</code>
+              &nbsp;文件作为组件的 demo 示例，并提供不同配置情况的效果，说明组件是如何使用的。
+            </p>
+            <h5>为什么？</h5>
+            <ul>
+              <li>demo 可以说明组件是独立可使用的</li>
+              <li>demo 可以让开发者预览组件的功能效果</li>
+              <li>demo 可以展示组件各种配置参数下的功能</li>
+            </ul>
+
+            <h3>对组件文件进行代码校验</h3>
+            <p>
+              代码校验可以保持代码的统一性以及追踪语法错误。.vue 文件可以通过使用&nbsp;
+              <code>eslint-plugin-html</code>
+              &nbsp;插件来校验代码。你可以通过&nbsp;
+              <code>vue-cli</code>
+              &nbsp;来开始你的项目，&nbsp;
+              <code>vue-cli</code>
+              &nbsp;默认会开启代码校验功能。
+            </p>
+            <h5>为什么？</h5>
+            <ul>
+              <li>保证所有的开发者使用同样的编码规范。</li>
+              <li>更早的感知到语法错误</li>
+            </ul>
+            <h5>怎么做？</h5>
+            <p>
+              为了校验工具能够校验&nbsp;
+              <code>*.vue</code>
+              &nbsp;文件，你需要将代码编写在&nbsp;
+              <code>&lt;script&gt;</code>
+              &nbsp;标签中，并使，因为校验工具无法理解行内表达式，配置校验工具可以访问全局变量&nbsp;
+              <code>vue</code>
+              &nbsp;和组件的&nbsp;
+              <code>props</code>
+              &nbsp;。
+            </p>
+          </blockquote>
+          <h3>ESLint (~)</h3>
+          <blockquote>
+            <p>ESLint&nbsp;需要通过&nbsp;ESLint HTML 插件&nbsp;来抽取组件中的代码。</p>
+            <p>
+              通过&nbsp;
+              <code>.eslintrc</code>
+              &nbsp;文件来配置 ESlint，这样 IED 可以更好的理解校验配置项。 ESlint，这样.
+            </p>
+            <pre class="prettyprint hljs json">{
+  <span class="hljs-attr">"extends": <span class="hljs-string">"eslint:recommended",
+  <span class="hljs-attr">"plugins": [<span class="hljs-string">"html"],
+  <span class="hljs-attr">"env": {
+    <span class="hljs-attr">"browser": <span class="hljs-literal">true
+  },
+  <span class="hljs-attr">"globals": {
+    <span class="hljs-attr">"opts": <span class="hljs-literal">true,
+    <span class="hljs-attr">"vue": <span class="hljs-literal">true
+  }
+}</span></span></span></span></span></span></span></span></span></span></span></span></pre>
+            <p>运行 ESLint</p>
+            <pre class="hljs nginx"><span class="hljs-attribute">eslint src/**/<span class="hljs-regexp">*.vue</span></span></pre>
+          </blockquote>
+
+          <h3>JSHint (~)</h3>
+          <blockquote>
+            <p>
+              JSHint&nbsp;可以解析 HTML (使用&nbsp;
+              <code>--extra-ext</code>
+              &nbsp;命令参数) 和 抽取代码（使用&nbsp;
+              <code>--extract=auto</code>
+              &nbsp;命令参数).
+            </p>
+            <p>
+              通过&nbsp;
+              <code>.jshintrc</code>
+              &nbsp;文件来配置 ESlint，这样 IED 可以更好的理解校验配置项。
+            </p>
+            <pre class="prettyprint hljs json">{
+  <span class="hljs-attr">"browser": <span class="hljs-literal">true,
+  <span class="hljs-attr">"predef": [<span class="hljs-string">"opts", <span class="hljs-string">"vue"]
+}</span></span></span></span></span></pre>
+            <p>运行 JSHint</p>
+            <pre class="prettyprint hljs lua">jshint <span class="hljs-comment">--config modules/.jshintrc --extra-ext=html --extract=auto modules/</span></pre>
+            <p>
+              注：JSHint 不接受&nbsp;
+              <code>vue</code>
+              &nbsp;扩展名的文件，只支持&nbsp;
+              <code>html</code>
+              &nbsp;。
+            </p>
+          </blockquote>
+
+          <h3>
+            参考和借鉴了大家的经验，收集整理了这一篇开发规范，感谢所有的原作者，也希望看到这篇文档的朋友如果有自己好的经验能更新上来。
+          </h3>
+          <p>
+            <a href="https://github.com/wykotton/VUE_develop_standard" target="_blank">前端VUE编码规范</a>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
